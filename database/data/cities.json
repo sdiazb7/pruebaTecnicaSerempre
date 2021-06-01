@@ -1,0 +1,42 @@
+[
+    {
+        "id": "1",
+        "name": "Bogota"
+    },
+    {
+        "id": "2",
+        "name": "Cali"
+    },
+    {
+        "id": "3",
+        "name": "Medellin"
+    },
+    {
+        "id": "4",
+        "name": "Barranquilla"
+    },
+    {
+        "id": "5",
+        "name": "Cartagena"
+    },
+    {
+        "id": "6",
+        "name": "Funza"
+    },
+    {
+        "id": "7",
+        "name": "Fusagasuga"
+    },
+    {
+        "id": "8",
+        "name": "Neiva"
+    },
+    {
+        "id": "9",
+        "name": "Ibague"
+    },
+    {
+        "id": "10",
+        "name": "Villavicencio"
+    }	
+]
