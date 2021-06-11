@@ -23,7 +23,7 @@ class ClientController extends Controller
  
     if(empty($data['text'])){
   
-	 $client = Client::select('client.id AS id', 'client.cod AS cod' ,'client.name AS name','cities.name AS city')->join('cities','client.city', '=', 'cities.id')->orderBy('client.id','DESC')->paginate(10);
+	 $client = Client::select('client.id AS id', 'client.cod AS cod' ,'client.name AS name','cities.name AS city','client.image AS image')->join('cities','client.city', '=', 'cities.id')->orderBy('client.id','DESC')->paginate(10);
 
         $title = 'Listado de usuarios';
 
@@ -56,16 +56,18 @@ class ClientController extends Controller
     {
 		
 		$cities = Cities::select('cities.id AS id', 'cities.name AS name')->get();
-      
+        
 	    
         return view('client.create',compact('cities'));
     }
 
-    public function store()
+    public function store(Request $request)
     {
 		
-		
-	 $data = request()->validate([
+	        $file = $request->file('imagen');
+            $name_file = $file->getClientOriginalName();
+            \Storage::disk('local')->put('public/'.$name_file ,  \File::get($file));	
+	        $data = request()->validate([
             'cod' => 'required',
 			'name' => 'required',
             'city' => 'required',
@@ -78,7 +80,8 @@ class ClientController extends Controller
         Client::create([
             'cod' => $data['cod'],
             'name' => $data['name'],
-            'city' => $data['city']
+            'city' => $data['city'],
+			'image' => $name_file,
         ]);
 
          return redirect()->back()->with('alert', 'Se registro el cliente');   
