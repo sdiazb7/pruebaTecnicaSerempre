@@ -74,13 +74,20 @@ class CitiesController extends Controller
 
         $cities->update($data);
 
-        return redirect()->back()->with('alert', 'Se actuolizo la ciudad');  
+        return redirect()->back()->with('alert', 'Se actualizo la ciudad');  
     }
 
     function destroy(Cities $cities)
     {
+		try{
         $cities->delete();
 
         return redirect()->back()->with('alert', 'Se elimino la ciudad');  
-    }
+        }catch (\Exception $e){
+	    
+   //tratamiento de la excepción
+        return redirect()->back()->with('alert', 'No se puede eliminar la ciudad');  
+        }			
+	
+	}
 }
