@@ -11,7 +11,7 @@ class Client extends Model
  
     protected $fillable = [
        
-	   'id','cod','name','city'
+	   'id','cod','name','city','image'
     ];
 
 }
