@@ -32,6 +32,7 @@
             <th scope="col">Codigo</th>
             <th scope="col">Nombre</th>
             <th scope="col">Ciudad</th>
+			<th scope="col">Imagen</th>
 			<th scope="col">Opciones</th>
             
         </tr>
@@ -42,6 +43,7 @@
             <th scope="row">{{ $c->cod }}</th>
             <td>{{ $c->name }}</td>
             <td>{{ $c->city }}</td>
+			<td><image src="{{asset('storage').'/'.$c->image }}" width="200"></image></td> 
             <td>
                 <form action="{{ route('client.destroy', $c) }}" method="POST">
                     {{ csrf_field() }}

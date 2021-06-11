@@ -18,7 +18,7 @@
                 </div>
             @endif
 
-            <form method="POST" action="{{ url('clients') }}">
+            <form method="POST" action="{{ url('clients') }}" enctype="multipart/form-data">
                 {{ csrf_field() }}
 
                 <div class="form-group">
@@ -29,6 +29,11 @@
                 <div class="form-group">
                     <label for="name">Nombre:</label>
                     <input type="text" class="form-control" name="name" id="name"  value="{{ old('name') }}" placeholder="Nombre">
+                </div>
+
+                <div class="form-group">
+				<label for="name">Subir imagen:</label>
+				<input type="file" name="imagen" />
                 </div>
 
                   <label for="city">Ciudad:</label>
